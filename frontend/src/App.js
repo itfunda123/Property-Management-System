@@ -4,12 +4,15 @@ import Register from './components/Register';
 import Login from './components/Login';
 import PrivateRoute from './utils/PrivateRoute';
 import Dashboard from './components/Dashboard';
-import PayRent from './components/PayRent';           // <-- newly imported
-import SendMessage from './components/SendMessage';   // <-- newly imported
-import Notifications from './components/Notifications'; // <-- newly imported
+import PayRent from './components/PayRent';
+import SendMessage from './components/SendMessage';
+import Notifications from './components/Notifications';
 import Navbar1 from './components/Navbar1';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Home from './pages/Home';         // <-- newly imported
+import AboutUs from './pages/AboutUs';   // <-- newly imported
+import ContactUs from './pages/ContactUs'; // <-- newly imported
 
 function App() {
   return (
@@ -60,6 +63,10 @@ function App() {
             </PrivateRoute>
           } />
 
+          {/* Public Pages */}
+          <Route path="/" element={<Home />} />           {/* Home Page */}
+          <Route path="/about-us" element={<AboutUs />} /> {/* About Us Page */}
+          <Route path="/contact-us" element={<ContactUs />} /> {/* Contact Us Page */}
 
         </Routes>
 
