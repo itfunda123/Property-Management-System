@@ -16,9 +16,10 @@ import ContactUs from './pages/ContactUs';
 
 // Admin Imports
 import AdminLogin from './admin/AdminLogin';
-import AdminRegister from './admin/AdminRegister';  // <-- Added Admin Register Import
+import AdminRegister from './admin/AdminRegister';
 import AdminDashboard from './admin/AdminDashboard';
 import PrivateAdminRoute from './admin/PrivateAdminRoute';
+import ManageTenants from './admin/ManageTenants'; // <-- Added ManageTenants Import
 
 function App() {
   return (
@@ -73,12 +74,17 @@ function App() {
 
           {/* Admin Routes */}
           <Route path="/admin-login" element={<AdminLogin />} />
-          <Route path="/admin-register" element={<AdminRegister />} /> {/* <-- Added Admin Register Route */}
+          <Route path="/admin-register" element={<AdminRegister />} />
           <Route path="/admin-dashboard" element={
             <PrivateAdminRoute>
               <AdminDashboard />
             </PrivateAdminRoute>
           } />
+          <Route path="/admin-manage-tenants" element={
+            <PrivateAdminRoute>
+              <ManageTenants />
+            </PrivateAdminRoute>
+          } /> {/* Added Manage Tenants Route */}
 
         </Routes>
 

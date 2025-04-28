@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
@@ -12,7 +11,14 @@ const paymentRoutes = require('./routes/paymentRoutes');            // Added pay
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+// CORS configuration (adjust for your needs)
+const corsOptions = {
+  origin: 'http://localhost:3000', // Replace with the frontend URL
+  credentials: true, // Allow cookies and credentials
+};
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 // Connect to MongoDB
@@ -30,6 +36,12 @@ app.use('/api/notifications', notificationRoutes);    // Notifications route
 app.use('/api/messages', messageRoutes);              // Messages route
 app.use('/api/admin/auth', adminAuthRoutes);          // Admin authentication routes
 app.use('/api/payments', paymentRoutes);              // Payment routes
+
+// Error handling middleware (optional but recommended)
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Internal Server Error' });
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -64,4 +64,19 @@ const getTenantProfile = async (req, res) => {
   }
 };
 
-module.exports = { registerTenant, authTenant, getTenantProfile };
+// Fetch all tenants
+const getAllTenants = async (req, res) => {
+  try {
+    const tenants = await Tenant.find();
+    res.json(tenants);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching tenants' });
+  }
+};
+
+module.exports = {
+  registerTenant,
+  authTenant,
+  getTenantProfile,
+  getAllTenants, // <-- Added this export
+};

@@ -11,6 +11,12 @@ function AdminNavbar() {
     setIsOpen(!isOpen);
   };
 
+  const handleLogout = () => {
+    // Clear admin authentication on logout (simple example with localStorage)
+    localStorage.removeItem('adminAuth');
+    window.location.href = '/admin-login';  // Redirect to login
+  };
+
   return (
     <div className="d-flex flex-column">
       {/* Top Navbar */}
@@ -37,7 +43,7 @@ function AdminNavbar() {
             <Link className="nav-link text-white" to="/admin-dashboard">Dashboard</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/admin-users">Manage Tenants</Link>
+            <Link className="nav-link text-white" to="/admin-manage-tenants">Manage Tenants</Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link text-white" to="/admin-payments">Payments</Link>
@@ -45,7 +51,18 @@ function AdminNavbar() {
           <li className="nav-item">
             <Link className="nav-link text-white" to="/admin-complaints">Complaints</Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="/send-message">Send Message to Tenants</Link>
+          </li>
         </ul>
+        
+        {/* Logout Button */}
+        <button 
+          className="btn btn-danger mt-3 w-100"
+          onClick={handleLogout}
+        >
+          Logout
+        </button>
       </div>
     </div>
   );
