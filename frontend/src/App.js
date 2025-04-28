@@ -10,7 +10,6 @@ import Notifications from './components/Notifications';
 import Navbar1 from './components/Navbar1';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './pages/Home';         // <-- newly imported
 import AboutUs from './pages/AboutUs';   // <-- newly imported
 import ContactUs from './pages/ContactUs'; // <-- newly imported
 
@@ -64,9 +63,9 @@ function App() {
           } />
 
           {/* Public Pages */}
-          <Route path="/" element={<Home />} />           {/* Home Page */}
-          <Route path="/about-us" element={<AboutUs />} /> {/* About Us Page */}
-          <Route path="/contact-us" element={<ContactUs />} /> {/* Contact Us Page */}
+          <Route path="/" element={<Register />} />  {/* Default Route to Register */} 
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
 
         </Routes>
 
