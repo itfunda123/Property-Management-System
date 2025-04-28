@@ -10,6 +10,7 @@ import Notifications from './components/Notifications';
 import Navbar1 from './components/Navbar1';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Home from './pages/Home';         // <-- newly imported
 import AboutUs from './pages/AboutUs';   // <-- newly imported
 import ContactUs from './pages/ContactUs'; // <-- newly imported
 
@@ -33,28 +34,25 @@ function App() {
             </>
           } />
 
-          {/* Private Routes with Navbar */}
+          {/* Tenant Routes */}
           <Route path="/tenant-dashboard" element={
             <PrivateRoute>
               <Navbar />
               <Dashboard />
             </PrivateRoute>
           } />
-
           <Route path="/pay-rent" element={
             <PrivateRoute>
               <Navbar />
               <PayRent />
             </PrivateRoute>
           } />
-
           <Route path="/send-message" element={
             <PrivateRoute>
               <Navbar />
               <SendMessage />
             </PrivateRoute>
           } />
-
           <Route path="/notification" element={
             <PrivateRoute>
               <Navbar />
@@ -63,9 +61,9 @@ function App() {
           } />
 
           {/* Public Pages */}
-          <Route path="/" element={<Register />} />  {/* Default Route to Register */} 
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/" element={<Home />} />           {/* Home Page */}
+          <Route path="/about-us" element={<AboutUs />} /> {/* About Us Page */}
+          <Route path="/contact-us" element={<ContactUs />} /> {/* Contact Us Page */}
 
         </Routes>
 
