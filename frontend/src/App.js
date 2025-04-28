@@ -10,9 +10,15 @@ import Notifications from './components/Notifications';
 import Navbar1 from './components/Navbar1';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './pages/Home';         // <-- newly imported
-import AboutUs from './pages/AboutUs';   // <-- newly imported
-import ContactUs from './pages/ContactUs'; // <-- newly imported
+import Home from './pages/Home';
+import AboutUs from './pages/AboutUs';
+import ContactUs from './pages/ContactUs';
+
+// Admin Imports
+import AdminLogin from './admin/AdminLogin';
+import AdminRegister from './admin/AdminRegister';  // <-- Added Admin Register Import
+import AdminDashboard from './admin/AdminDashboard';
+import PrivateAdminRoute from './admin/PrivateAdminRoute';
 
 function App() {
   return (
@@ -34,28 +40,25 @@ function App() {
             </>
           } />
 
-          {/* Private Routes with Navbar */}
+          {/* Tenant Routes */}
           <Route path="/tenant-dashboard" element={
             <PrivateRoute>
               <Navbar />
               <Dashboard />
             </PrivateRoute>
           } />
-
           <Route path="/pay-rent" element={
             <PrivateRoute>
               <Navbar />
               <PayRent />
             </PrivateRoute>
           } />
-
           <Route path="/send-message" element={
             <PrivateRoute>
               <Navbar />
               <SendMessage />
             </PrivateRoute>
           } />
-
           <Route path="/notification" element={
             <PrivateRoute>
               <Navbar />
@@ -64,9 +67,18 @@ function App() {
           } />
 
           {/* Public Pages */}
-          <Route path="/" element={<Home />} />           {/* Home Page */}
-          <Route path="/about-us" element={<AboutUs />} /> {/* About Us Page */}
-          <Route path="/contact-us" element={<ContactUs />} /> {/* Contact Us Page */}
+          <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+
+          {/* Admin Routes */}
+          <Route path="/admin-login" element={<AdminLogin />} />
+          <Route path="/admin-register" element={<AdminRegister />} /> {/* <-- Added Admin Register Route */}
+          <Route path="/admin-dashboard" element={
+            <PrivateAdminRoute>
+              <AdminDashboard />
+            </PrivateAdminRoute>
+          } />
 
         </Routes>
 
