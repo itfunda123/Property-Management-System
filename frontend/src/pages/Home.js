@@ -8,20 +8,20 @@ import image3 from '../Images/image3.jpg';
 function Home() {
   return (
     <div className="m-0 p-0">
-      <Navbar /> {/* Navbar stays at the top */}
+      <Navbar />
 
-      <div id="homeCarousel" className="carousel slide" data-bs-ride="carousel">
+      <div id="homeCarousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
         <div className="carousel-inner">
           <div className="carousel-item active">
             <img 
               src={image1} 
               className="d-block w-100" 
               alt="Pay Rent" 
-              style={{ height: '75vh', objectFit: 'cover' }} 
+              style={{ height: '75vh', objectFit: 'cover' }}
             />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Paying Rent Made Easy</h5>
-              <p>Secure and fast online payments.</p>
+            <div className="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+              <h2 className="fw-bold">Paying Rent Made Easy</h2>
+              <p className="lead">Secure and fast online payments.</p>
             </div>
           </div>
           <div className="carousel-item">
@@ -29,11 +29,11 @@ function Home() {
               src={image2} 
               className="d-block w-100" 
               alt="Reminders" 
-              style={{ height: '75vh', objectFit: 'cover' }} 
+              style={{ height: '75vh', objectFit: 'cover' }}
             />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Get Reminders</h5>
-              <p>Never miss a rent payment again.</p>
+            <div className="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+              <h2 className="fw-bold">Get Reminders</h2>
+              <p className="lead">Never miss a rent payment again.</p>
             </div>
           </div>
           <div className="carousel-item">
@@ -41,11 +41,11 @@ function Home() {
               src={image3} 
               className="d-block w-100" 
               alt="Contact Landlord" 
-              style={{ height: '75vh', objectFit: 'cover' }} 
+              style={{ height: '75vh', objectFit: 'cover' }}
             />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Contact Landlord Directly</h5>
-              <p>Fast messaging through your dashboard.</p>
+            <div className="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+              <h2 className="fw-bold">Contact Landlord Directly</h2>
+              <p className="lead">Fast messaging through your dashboard.</p>
             </div>
           </div>
         </div>
