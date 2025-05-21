@@ -1,5 +1,6 @@
 // components/Home.js
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Important: Add Bootstrap JS
 import Navbar from '../components/Navbar1';
 import image1 from '../Images/image1.jpg';
 import image2 from '../Images/image2.jpg';
@@ -10,7 +11,7 @@ function Home() {
     <div className="m-0 p-0">
       <Navbar />
 
-      <div id="homeCarousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div id="homeCarousel" className="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
         <div className="carousel-inner">
           <div className="carousel-item active">
             <img 
@@ -24,6 +25,7 @@ function Home() {
               <p className="lead">Secure and fast online payments.</p>
             </div>
           </div>
+
           <div className="carousel-item">
             <img 
               src={image2} 
@@ -36,6 +38,7 @@ function Home() {
               <p className="lead">Never miss a rent payment again.</p>
             </div>
           </div>
+
           <div className="carousel-item">
             <img 
               src={image3} 
